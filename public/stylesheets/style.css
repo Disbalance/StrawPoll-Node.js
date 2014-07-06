@@ -1,5 +1,4 @@
-article, aside, details, figcaption, figure,
-footer, header, menu, nav, section {
+footer, header,{
     display: block;
 }
 body {
@@ -16,16 +15,11 @@ q:before, q:after {
     content: '';
     content: none;
 }
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-/* End of Eric Meyer's CSS Reset */
 
 html {
     height: 100%;
 }
-article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+footer{
     display: block;
 }
 body {
@@ -41,7 +35,6 @@ body {
     height: auto !important;
     height: 100%;
 }
-
 
 /* Header
 -----------------------------------------------------------------------------*/
