@@ -210,6 +210,7 @@ body {
 }
 #autor a {
     color: white;
+    text-decoration: none;
 }
 #links {
     color:white;
@@ -219,4 +220,5 @@ body {
 }
 #links a{
  color: white;
+ text-decoration: none;
 }
