@@ -1,11 +1,97 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+    <title>Мини Опрос</title>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <script language="javascript">
+        var items=4;
+        function AddItem() {
+            var div=document.getElementById("pollBody");
+            var button=document.getElementById("Add");
+            items++;
+            var newitem="<span>" + items + ". </span>";
+            newitem+="<input type=\"text\" placeholder=\"Введите вариант ответа...\" name=\"Option " + items;
+            newitem+="\" size=\"20\">";
+            newnode=document.createElement("div");
+            newnode.className = "pollOption";
+            newnode.innerHTML=newitem;
+            div.insertBefore(newnode,button);
+        }
+    </script>
+</head>
+
+<body>
+<div class="wrapper">
+
+    <header class="header">
+        <a class = title href="/">Мини Опрос</a>
+    </header><!-- .header-->
+
+    <div class="middle">
+
+        <div class="container">
+            <main class="content">
+                <div id = pollForm>
+                    <div id = pollHeader>
+                        <textarea type="text" placeholder="Введите вопрос здесь, а варианты ответов ниже" name="Question"></textarea>
+                    </div>
+                    <div id="pollBody">
+                        <div class="pollOption">
+                            <span>1.</span>
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option 1">
+                        </div>
+                        <div class="pollOption">
+                            <span>2.</span>
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option 2">
+                        </div>
+                        <div class="pollOption">
+                            <span>3.</span>
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option 3">
+                        </div>
+                        <div class="pollOption">
+                            <span>4.</span>
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option 4">
+                        </div>
+                    </div>
+                    <div id="pollFooter">
+                        <br>
+                        <button id="pollCreateButton">
+                            Создать опрос
+                        </button>
+                        <button id="pollAddButton" onclick=AddItem()>
+                            Добавить поле
+                        </button>
+
+                    </div>
+                </div>
+
+            </main><!-- .content -->
+        </div><!-- .container-->
+    </div><!-- .middle-->
+
+</div><!-- .wrapper -->
+
+<footer class="footer">
+    <div id="pollFooter">
+        <input type="checkbox" id="pollMulti" name="pollMulti">
+        <label for="pollMulti">Разрешить несколько вариантов ответа?</label>
+        <br>
+        <input type="checkbox" id="pollPermissive" name="pollPermissive">
+        <label for="pollPermissive">Разрешить повторное прохождение опроса?</label> <small><a href="#" id="permissiveVoteExplain">
+        <div id = autor>
+            Автор: <a href="http://vk.com/ledenyov_roma">DisBalance</a>
+        </div>
+        </div>
+        <div id="links">
+            <a href="http://proteys.info/404/">Условия поставления услуг</a> |
+            <a href="http://proteys.info/404/">Политика конфиденциальности</a>
+        </div>
+     </div>
+</footer><!-- .footer -->
+</body>
 </html>
