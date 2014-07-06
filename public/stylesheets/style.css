@@ -1,8 +1,222 @@
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* End of Eric Meyer's CSS Reset */
+
+html {
+    height: 100%;
+}
+article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+    display: block;
+}
+body {
+    font: 12px/18px Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+}
+.wrapper {
+    text-align: center;
+    margin: 0 auto;
+    width: 1000px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
 }
 
-a {
-  color: #00B7FF;
+
+/* Header
+-----------------------------------------------------------------------------*/
+.title {
+    margin-top: 50px;
+    font-size: 44pt;
+    text-align: center;
+    font-family: 'Sigmar One', sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
+}
+.header {
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    height: 50px;
+    background: deepskyblue;
+    margin-bottom: 20px;
+}
+.header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.middle {
+    width: 100%;
+    padding: 0 0 100px;
+    position: relative;
+}
+.middle:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+.container {
+    width: 100%;
+    float: left;
+    /*overflow: hidden;*/
+}
+
+#pollFooter label{
+    margin: 3px 0px 0px 5px;
+    font-family: 'Gloria Hallelujah',cursive;
+    font-size: 16pt;
+    color: white;
+}
+
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+    width: 1000px;
+    margin: -100px auto 0;
+    height: 120px;
+    background: deepskyblue;
+    position: relative;
+}
+#pollBody .pollOption{
+    background-position: center;
+    background-image: url("../images/List_line.jpg");
+    background-repeat: no-repeat;
+    line-height: 29px;
+    font-family: 'Times New Roman', cursive;
+    min-height: 29px;
+    overflow: hidden;
+    position: relative;
+}
+#pollForm #pollBody .pollOption > span {
+    position: absolute;
+    /*left: 30px;*/
+    font-size: 22pt;
+    font-family: "Sigoe Script",cursive;
+    color: blueviolet;
+}
+#pollForm #pollBody .pollOption .pollOptionStandings {
+    margin-left: 120px;
+    padding-top: 2px;
+    font-size: 13pt;
+    height: 38px;
+}
+#pollForm input:focus,
+#pollForm textarea:focus {
+    border-color: rgb(0,242,33) !important;
+    outline: rgb(0,242,33) solid 0px;
+}
+#pollForm input,
+
+#pollForm .pollOption div {
+    margin: 0px 0px 0px 80px;
+  /*  margin-top: 6px;*/
+    width: 605px;
+    border: 0;
+    background: transparent;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 16pt;
+    vertical-align: text-bottom;
+}
+#pollForm textarea,
+#pollForm #pollHeader div{
+    /*margin-top: 6px;*/
+    width: 719px;
+    resize: none;
+    border: 0;
+    color:purple;
+    background: transparent;
+    background-image: url(../images/Notepad_list.jpg);
+    background-repeat: no-repeat;
+    line-height: 50px;
+    min-height: 50px;
+    font-family: 'Sigoe Script', cursive;
+    font-size: 14pt;
+    vertical-align: text-bottom;
+}
+#pollHeader {
+    min-height: 100px;
+    position: relative;
+    background: #ebebeb;
+    width:720px;
+    margin: 0 auto;
+}
+#pollHeader div {
+    margin: 0px 0px 0px 80px;
+    padding-bottom: 30px;
+}
+#pollHeader textarea,
+#pollHeader div {
+    font-size: 19pt !important;
+
+}
+#pollHeader small {
+    display: block;
+    font-size: 15pt !important;
+    position: absolute;
+    bottom: 0px;
+    font-style: italic;
+    /*padding: 2px;*/
+}
+#pollCreateButton, #pollAddButton {
+    font-size: 15pt;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    height: 40px;
+    border: 0;
+    color: #fff;
+    background: deepskyblue;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-family: 'Sigmar One', cursive;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0px 6px;
+    display: inline-block;
+}
+#autor {
+    width: 200px;
+    margin: 30px 30px 0px auto;
+    text-align: end;
+    font-family: 'Sigmar One', sans-serif;
+    color: white;
+    font-size: medium;
+}
+#autor a {
+    color: white;
+}
+#links {
+    color:white;
+    margin-top: 5px;
+    text-align: center;
+    font-size: medium;
+}
+#links a{
+ color: white;
 }
