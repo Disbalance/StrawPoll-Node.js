@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-footer, header,{
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-
-html {
-    height: 100%;
-}
-footer{
-    display: block;
-}
-body {
-=======
 article, aside, details, figcaption, figure,
 footer, header, menu, nav, section {
     display: block;
@@ -56,7 +29,6 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
     display: block;
 }
 body {
->>>>>>> 0beaa501799fec8ad037b65474a9d2134a1d374d
     font: 12px/18px Arial, sans-serif;
     width: 100%;
     height: 100%;
@@ -70,10 +42,7 @@ body {
     height: 100%;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 0beaa501799fec8ad037b65474a9d2134a1d374d
 /* Header
 -----------------------------------------------------------------------------*/
 .title {
@@ -116,7 +85,6 @@ body {
     width: 100%;
     float: left;
     /*overflow: hidden;*/
-<<<<<<< HEAD
 }
 
 #pollFooter label{
@@ -126,17 +94,6 @@ body {
     color: white;
 }
 
-=======
-}
-
-#pollFooter label{
-    margin: 3px 0px 0px 5px;
-    font-family: 'Gloria Hallelujah',cursive;
-    font-size: 16pt;
-    color: white;
-}
-
->>>>>>> 0beaa501799fec8ad037b65474a9d2134a1d374d
 /* Footer
 -----------------------------------------------------------------------------*/
 .footer {
@@ -178,7 +135,7 @@ body {
 
 #pollForm .pollOption div {
     margin: 0px 0px 0px 80px;
-  /*  margin-top: 6px;*/
+    /*  margin-top: 6px;*/
     width: 605px;
     border: 0;
     background: transparent;
@@ -253,10 +210,7 @@ body {
 }
 #autor a {
     color: white;
-<<<<<<< HEAD
     text-decoration: none;
-=======
->>>>>>> 0beaa501799fec8ad037b65474a9d2134a1d374d
 }
 #links {
     color:white;
@@ -265,9 +219,6 @@ body {
     font-size: medium;
 }
 #links a{
- color: white;
-<<<<<<< HEAD
- text-decoration: none;
-=======
->>>>>>> 0beaa501799fec8ad037b65474a9d2134a1d374d
+    color: white;
+    text-decoration: none;
 }
