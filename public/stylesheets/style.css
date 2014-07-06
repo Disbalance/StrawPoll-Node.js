@@ -183,7 +183,7 @@ body {
     font-style: italic;
     /*padding: 2px;*/
 }
-#pollCreateButton, #pollAddButton {
+#pollCreateButton {
     font-size: 15pt;
     margin-top: 6px;
     margin-bottom: 10px;

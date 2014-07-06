@@ -10,12 +10,15 @@
     <link href="stylesheets/style.css" rel="stylesheet">
     <script language="javascript">
         var items=4;
-        function AddItem() {
+        function AddItem(item) {
+            if ((item == 30) || (item != items)){
+                return;
+            }
             var div=document.getElementById("pollBody");
             var button=document.getElementById("Add");
             items++;
             var newitem="<span>" + items + ". </span>";
-            newitem+="<input type=\"text\" placeholder=\"Введите вариант ответа...\" name=\"Option " + items;
+            newitem+="<input type=\"text\" placeholder=\"Введите вариант ответа...\" onkeypress =\"AddItem("+items+")\" name=\"Option " + items;
             newitem+="\" size=\"20\">";
             newnode=document.createElement("div");
             newnode.className = "pollOption";
@@ -43,19 +46,19 @@
                     <div id="pollBody">
                         <div class="pollOption">
                             <span>1.</span>
-                            <input type="text" placeholder="Введите вариант ответа..." name="Option 1">
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option 1" size = 20>
                         </div>
                         <div class="pollOption">
                             <span>2.</span>
-                            <input type="text" placeholder="Введите вариант ответа..." name="Option 2">
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option 2" size = 20>
                         </div>
                         <div class="pollOption">
                             <span>3.</span>
-                            <input type="text" placeholder="Введите вариант ответа..." name="Option 3">
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option 3" size = 20>
                         </div>
                         <div class="pollOption">
                             <span>4.</span>
-                            <input type="text" placeholder="Введите вариант ответа..." name="Option 4">
+                            <input type="text" placeholder="Введите вариант ответа..." onkeypress="AddItem(4)" name="Option 4" size = 20>
                         </div>
                     </div>
                     <div id="pollFooter">
@@ -63,10 +66,6 @@
                         <button id="pollCreateButton">
                             Создать опрос
                         </button>
-                        <button id="pollAddButton" onclick=AddItem()>
-                            Добавить поле
-                        </button>
-
                     </div>
                 </div>
 
