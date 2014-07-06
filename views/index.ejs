@@ -3,6 +3,7 @@
 <head>
     <title>Мини Опрос</title>
     <meta charset="utf-8" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <title></title>
     <meta name="keywords" content="" />
@@ -26,6 +27,22 @@
             div.insertBefore(newnode,button);
         }
     </script>
+    <script language="javascript">
+        function createVoting() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/createPoll', true);
+            xhr.send(createData());
+        };
+        function createData(){
+           var option = [];
+            $('input', '.pollOption').each(function(index, item) {
+                if (item.value !="") {
+                    option.push(item.value);
+                }
+            });
+           return JSON.stringify({quest: $('#quest').val(), options: option});
+        }
+    </script>
 </head>
 
 <body>
@@ -41,29 +58,29 @@
             <main class="content">
                 <div id = pollForm>
                     <div id = pollHeader>
-                        <textarea type="text" placeholder="Введите вопрос здесь, а варианты ответов ниже" name="Question"></textarea>
+                        <textarea type="text" placeholder="Введите вопрос здесь, а варианты ответов ниже" id="quest"></textarea>
                     </div>
                     <div id="pollBody">
                         <div class="pollOption">
                             <span>1.</span>
-                            <input type="text" placeholder="Введите вариант ответа..." name="Option 1" size = 20>
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option_1" size = 20>
                         </div>
                         <div class="pollOption">
                             <span>2.</span>
-                            <input type="text" placeholder="Введите вариант ответа..." name="Option 2" size = 20>
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option_2" size = 20>
                         </div>
                         <div class="pollOption">
                             <span>3.</span>
-                            <input type="text" placeholder="Введите вариант ответа..." name="Option 3" size = 20>
+                            <input type="text" placeholder="Введите вариант ответа..." name="Option_3" size = 20>
                         </div>
                         <div class="pollOption">
                             <span>4.</span>
-                            <input type="text" placeholder="Введите вариант ответа..." onkeypress="AddItem(4)" name="Option 4" size = 20>
+                            <input type="text" placeholder="Введите вариант ответа..." onkeypress="AddItem(4)" name="Option_4" size = 20>
                         </div>
                     </div>
                     <div id="pollFooter">
                         <br>
-                        <button id="pollCreateButton">
+                        <button id="pollCreateButton" onclick="createVoting()">
                             Создать опрос
                         </button>
                     </div>
@@ -82,15 +99,15 @@
         <br>
         <input type="checkbox" id="pollPermissive" name="pollPermissive">
         <label for="pollPermissive">Разрешить повторное прохождение опроса?</label> <small><a href="#" id="permissiveVoteExplain">
-        <div id = autor>
-             <a href="https://github.com/LedenevRoman">Автор: DisBalance</a>
-        </div>
-        </div>
-        <div id="links">
-            <a href="http://proteys.info/404/">Условия поставления услуг</a> |
-            <a href="http://proteys.info/404/">Политика конфиденциальности</a>
-        </div>
-     </div>
+                <div id = autor>
+                    <a href="https://github.com/LedenevRoman">Автор: DisBalance</a>
+                </div>
+    </div>
+    <div id="links">
+        <a href="http://proteys.info/404/">Условия поставления услуг</a> |
+        <a href="http://proteys.info/404/">Политика конфиденциальности</a>
+    </div>
+    </div>
 </footer><!-- .footer -->
 </body>
 </html>
