@@ -40,7 +40,9 @@
                     option.push(item.value);
                 }
             });
-           return JSON.stringify({quest: $('#quest').val(), options: option});
+            var multis=document.getElementById("pollMulti").checked;
+            var ips = document.getElementById("pollPermissive").checked;
+           return JSON.stringify({quest: $('#quest').val(), options: option, multi: multis, ip: ips});
         }
     </script>
 </head>
@@ -94,11 +96,11 @@
 
 <footer class="footer">
     <div id="pollFooter">
-        <input type="checkbox" id="pollMulti" name="pollMulti">
+        <input type="checkbox" id="pollMulti" name="pass">
         <label for="pollMulti">Разрешить несколько вариантов ответа?</label>
         <br>
-        <input type="checkbox" id="pollPermissive" name="pollPermissive">
-        <label for="pollPermissive">Разрешить повторное прохождение опроса?</label> <small><a href="#" id="permissiveVoteExplain">
+        <input type="checkbox" id="pollPermissive" name="ip">
+        <label for="pollPermissive">Разрешить повторное прохождение опроса?</label>
                 <div id = autor>
                     <a href="https://github.com/LedenevRoman">Автор: DisBalance</a>
                 </div>
