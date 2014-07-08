@@ -5,13 +5,12 @@ req.on('readable', function() {
 })
     .on('end', function() {
         temp = JSON.parse(temp);
-        parseData(temp);
-        res.end("ok");
+        parseData(temp,res);
     });
 
 };
 
-function parseData(temp){
+function parseData(temp,res){
     var question = temp.quest;
     var option = new Array();
     var option = temp.options;
@@ -25,7 +24,8 @@ function parseData(temp){
     var strawpoll = {quest: question, mult_pass: multi, mult_ip: ip};
     var options  = {option: option};
 
-    addPollDB(strawpoll,options);
+
+    addPollDB(strawpoll,options,res);
 }
 
 /*--- MySQL Database----*/
@@ -38,7 +38,7 @@ var connection = mysql.createConnection({
     database: 'poll'
 });
 
-function addPollDB(strawpoll,options){
+function addPollDB(strawpoll,options,res){
     connection.query('INSERT INTO strawpoll SET ?',strawpoll, function(err, result) {
     var id = result.insertId;
     for (i=0;i<options.option.length;i++) {
@@ -48,6 +48,8 @@ function addPollDB(strawpoll,options){
             console.log(result);
         });
     }
+        res.statusCode = 200;
+        res.end("http://poll.me/"+String(id));
  });
 }
 

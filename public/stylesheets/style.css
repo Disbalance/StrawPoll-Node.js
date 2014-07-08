@@ -218,7 +218,33 @@ body {
     text-align: center;
     font-size: medium;
 }
-#links a{
+#links a {
     color: white;
     text-decoration: none;
+}
+
+/* Всплывающее окно */
+.b-popup{
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+}
+.b-popup .b-popup-content{
+    margin: 15% auto 15% auto;
+    width:450px;
+    height: 40px;
+    color: white;
+    font-family: 'Sigmar One', cursive;
+    font-size: 14pt;
+    text-align: center;
+    padding: 50px;
+    background-color: deepskyblue;
+    border-radius:10px;
+    box-shadow: 0px 0px 10px #000;
+}
+.b-popup .b-popup-content a{
+    color:white;
 }

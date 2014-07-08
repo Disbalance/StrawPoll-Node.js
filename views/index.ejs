@@ -28,12 +28,29 @@
         }
     </script>
     <script language="javascript">
+
         function createVoting() {
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/createPoll', true);
-            xhr.send(createData());
+            xhr.open('POST', '/createPoll',true);
+            var data = createData();
+            if (data == 0) {
+                return;
+            }
+            xhr.send(data);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if(xhr.status == 200) {
+                        var o = document.createElement('div');
+                        o.className ="b-popup-content";
+                        o.innerHTML = '<div class=\"b-popup\" id=\"popup1\"><div class=\"b-popup-content\"><span> Ваш вопрос был создан и теперь доступен:</span><div><a href="'+xhr.responseText+'">'+xhr.responseText+'</a></div></div></div>';
+                        document.body.appendChild(o);
+                    }
+                }
+            };
+
+
         };
-        function createData(){
+         function createData(){
            var option = [];
             $('input', '.pollOption').each(function(index, item) {
                 if (item.value !="") {
@@ -42,7 +59,11 @@
             });
             var multis=document.getElementById("pollMulti").checked;
             var ips = document.getElementById("pollPermissive").checked;
-           return JSON.stringify({quest: $('#quest').val(), options: option, multi: multis, ip: ips});
+             if (($('#quest').val() =="") || (option.length <= 1)) {
+                   alert('Заполните поле вопрос и заполните более 2-х вариантов ответа');
+                 return 0;
+             }
+            return JSON.stringify({quest: $('#quest').val(), options: option, multi: multis, ip: ips});
         }
     </script>
 </head>
@@ -55,7 +76,6 @@
     </header><!-- .header-->
 
     <div class="middle">
-
         <div class="container">
             <main class="content">
                 <div id = pollForm>
@@ -82,12 +102,11 @@
                     </div>
                     <div id="pollFooter">
                         <br>
-                        <button id="pollCreateButton" onclick="createVoting()">
+                        <button id="pollCreateButton" onclick ="createVoting()">
                             Создать опрос
                         </button>
                     </div>
                 </div>
-
             </main><!-- .content -->
         </div><!-- .container-->
     </div><!-- .middle-->
@@ -111,5 +130,8 @@
     </div>
     </div>
 </footer><!-- .footer -->
+<div id="popup">
+
+</div>
 </body>
 </html>
