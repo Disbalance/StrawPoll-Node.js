@@ -53,7 +53,7 @@ function addPollDB(strawpoll,options,res){
  });
 }
 
-/*function getOptionDB() {
+function getOptionDB() {
     connection.query('SELECT * FROM strawpoll', function (error, result, fields) {
         // Если возникла ошибка выбрасываем исключение
         if (error) {
@@ -63,5 +63,5 @@ function addPollDB(strawpoll,options,res){
         console.log(fields);
         console.log(result);
     });
-}*/
+}
 
