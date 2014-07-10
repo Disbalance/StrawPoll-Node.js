@@ -1,3 +1,4 @@
+var database = require('../lib/database');
 var express = require('express');
 var router = express.Router();
 
@@ -10,7 +11,7 @@ router.get('/', function(req, res) {
 router.get('/[0-9]+', function(req,res) {
    var s = req.url;
    var n = s.substring(1, s.length);
-   res.end(n);
+   database.getDataDB(n,res);
 });
 
 
