@@ -18,7 +18,7 @@ router.get('/[0-9]+/r', function(req,res) {
     var s = req.url;
     var data = [];
     data = s.split('/');
-    console.log(data);
+    console.log(req);
     res.end('RESULT');
 });
 
