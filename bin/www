@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var debug = require('debug')('StrawPoll-Node.js');
 var app = require('../app');
+var mysql = require('../lib/database').createConnection();
 
 app.set('port', process.env.PORT || 3000);
 

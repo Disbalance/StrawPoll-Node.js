@@ -22,6 +22,6 @@ router.get('/[0-9]+/r', function(req,res) {
     res.end('RESULT');
 });
 
-router.post('/createPoll', require('./create').post);
+router.post('/createPoll', require('./../lib/createPoll').post);
 
 module.exports = router;
