@@ -49,7 +49,7 @@ function addPollDB(strawpoll,options,res){
         });
     }
         res.statusCode = 200;
-        res.end("http://poll.me/"+String(id));
+        res.end("http://poll.me:3000/"+String(id));
  });
 }
 
