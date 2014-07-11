@@ -24,4 +24,5 @@ router.get('/[0-9]+/r', function(req,res) {
 });
 
 router.post('/createPoll', require('./../lib/createPoll').post);
+router.post('/vote', require('./../lib/vote').post);
 module.exports = router;

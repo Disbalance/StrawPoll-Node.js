@@ -9,6 +9,35 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link href="stylesheets/style.css" rel="stylesheet">
+    <script language="javascript">
+        function vote(){
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/vote',true);
+            var data = createVote();
+            if (data == 0) {
+                alert('Выберите вариант ответа и нажмите кнопку "Голосовать"');
+                return;
+            }
+            xhr.send(data);
+        }
+
+        function createVote(){
+            var value = [];
+            var input = document.getElementsByTagName('input');
+            for (var i = 0; i < input.length; i++) {
+                if ((input[i].type === 'radio' && input[i].checked && input[i].name === 'radio') ||
+                    (input[i].type === 'checkbox' && input[i].checked && input[i].name === 'checkbox')){
+                    value.push(input[i].value);
+                }
+            }
+            if (value.length == 0){
+                return 0;
+            }
+            var s = window.location.pathname;
+            var n = s.substring(1, s.length);
+            return JSON.stringify({id:n, value:value});
+        }
+    </script>
 </head>
 
 <body>
@@ -31,7 +60,7 @@
                             <%if (!mult_pass){%>
                             <input type="radio" id="radio" value="<%=i+1%>"  name ="radio">
                             <%}else{%>
-                            <input type="checkbox" value ="<%=i+1%>>" id="checkbox" name="checkbox">
+                            <input type="checkbox" value ="<%=i+1%>" id="checkbox" name="checkbox">
                             <%}%>
                             <input type="text" value=<%=options[i]%> name="text" readonly  size = 20>
                         </div>
@@ -39,7 +68,7 @@
                         </div>
                     <div id="pollFooter">
                         <br>
-                        <button id="pollVote" onclick ="createVoting()">
+                        <button id="pollVote" onclick ="vote()">
                             Голосовать
                         </button>
                         <span>             </span>
