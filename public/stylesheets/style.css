@@ -183,7 +183,7 @@ body {
     font-style: italic;
     /*padding: 2px;*/
 }
-#pollCreateButton {
+#pollCreateButton,  #pollVote, #pollResult {
     font-size: 15pt;
     margin-top: 6px;
     margin-bottom: 10px;
@@ -199,6 +199,10 @@ body {
     text-decoration: none;
     padding: 0px 6px;
     display: inline-block;
+}
+#pollVote, #pollResult{
+    margin-left: 100px;
+    margin-right: 100px;
 }
 #autor {
     width: 200px;
@@ -247,4 +251,23 @@ body {
 }
 .b-popup .b-popup-content a{
     color:white;
+}
+
+/*Checkbox*/
+#pollForm #pollBody .pollOption #checkbox {
+    position: absolute;
+    margin-left: 5px;
+    margin-top : 0px;
+    width: 31px;
+    height: 37px;
+    background-color: deepskyblue;
+}
+/**Radio*/
+#pollForm #pollBody .pollOption #radio {
+    position: absolute;
+    margin-left: 5px;
+    margin-top : 0px;
+    width: 31px;
+    height: 37px;
+    background-color: deepskyblue;
 }

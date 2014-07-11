@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мини Опрос</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="wrapper">
+
+    <header class="header">
+        <a class = title href="/">Мини Опрос</a>
+    </header><!-- .header-->
+
+    <div class="middle">
+        <div class="container">
+            <main class="content">
+                <div id = pollForm>
+                    <div id = pollHeader>
+                        <textarea type="text" id="quest" readonly><%=quest%></textarea>
+                    </div>
+                    <div id="pollBody">
+                       <%for(i=0;i<options.length;i++){%>
+                        <div class="pollOption">
+                            <%if (!mult_pass){%>
+                            <input type="radio" id="radio" value="<%=i+1%>"  name ="radio">
+                            <%}else{%>
+                            <input type="checkbox" value ="<%=i+1%>>" id="checkbox" name="checkbox">
+                            <%}%>
+                            <input type="text" value=<%=options[i]%> name="text" readonly  size = 20>
+                        </div>
+                        <%}%>
+                        </div>
+                    <div id="pollFooter">
+                        <br>
+                        <button id="pollVote" onclick ="createVoting()">
+                            Голосовать
+                        </button>
+                        <span>             </span>
+                        <button id="pollResult" onclick ="createVoting()">
+                            Результаты
+                        </button>
+                    </div>
+                </div>
+            </main><!-- .content -->
+        </div><!-- .container-->
+    </div><!-- .middle-->
+
+</div><!-- .wrapper -->
+
+<footer class="footer">
+    <div id="pollFooter">
+        <label for="pollMulti"></label>
+        <br>
+        <label for="pollPermissive"></label>
+        <div id = autor>
+            <a href="https://github.com/LedenevRoman">Автор: DisBalance</a>
+        </div>
+    </div>
+    <div id="links">
+        <a href="http://proteys.info/404/">Условия поставления услуг</a> |
+        <a href="http://proteys.info/404/">Политика конфиденциальности</a>
+    </div>
+    </div>
+</footer><!-- .footer -->
+<div id="popup">
+
+</div>
+</body>
+</html>

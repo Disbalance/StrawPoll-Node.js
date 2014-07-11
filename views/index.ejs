@@ -12,19 +12,19 @@
     <script language="javascript">
         var items=4;
         function AddItem(item) {
-            if ((item == 30) || (item != items)){
+            if ((item == 30) || (item != items)) {
                 return;
             }
-            var div=document.getElementById("pollBody");
-            var button=document.getElementById("Add");
+            var div = document.getElementById("pollBody");
+            var button = document.getElementById("Add");
             items++;
-            var newitem="<span>" + items + ". </span>";
-            newitem+="<input type=\"text\" placeholder=\"Введите вариант ответа...\" onkeypress =\"AddItem("+items+")\" name=\"Option " + items;
-            newitem+="\" size=\"20\">";
-            newnode=document.createElement("div");
+            var newitem = "<span>" + items + ". </span>";
+            newitem += "<input type=\"text\" placeholder=\"Введите вариант ответа...\" onkeypress =\"AddItem(" + items + ")\" name=\"Option " + items;
+            newitem += "\" size=\"20\">";
+            newnode = document.createElement("div");
             newnode.className = "pollOption";
-            newnode.innerHTML=newitem;
-            div.insertBefore(newnode,button);
+            newnode.innerHTML = newitem;
+            div.insertBefore(newnode, button);
         }
     </script>
     <script language="javascript">
