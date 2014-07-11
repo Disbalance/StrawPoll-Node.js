@@ -10,17 +10,23 @@
     <meta name="description" content="" />
     <link href="stylesheets/style.css" rel="stylesheet">
     <script language="javascript">
-        function vote(){
+        function vote() {
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/vote',true);
+            xhr.open('POST', '/vote', true);
             var data = createVote();
             if (data == 0) {
                 alert('Выберите вариант ответа и нажмите кнопку "Голосовать"');
                 return;
             }
             xhr.send(data);
-        }
-
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        alert(xhr.responseText);
+                    }
+                }
+            };
+        };
         function createVote(){
             var value = [];
             var input = document.getElementsByTagName('input');
