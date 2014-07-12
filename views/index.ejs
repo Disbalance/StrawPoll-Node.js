@@ -52,9 +52,12 @@
         };
          function createData(){
            var option = [];
+           var space = false;
             $('input', '.pollOption').each(function(index, item) {
                 if (item.value !="") {
-                    option.push(item.value);
+                    if (item.value != ' ') {
+                        option.push(item.value);
+                    }
                 }
             });
             var multis=document.getElementById("pollMulti").checked;

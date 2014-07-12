@@ -27,6 +27,7 @@
                     }
                 }
             };
+         /*;*/
         };
         function createVote(){
             var value = [];
@@ -43,6 +44,9 @@
             var s = window.location.pathname;
             var n = s.substring(1, s.length);
             return JSON.stringify({id:n, value:value});
+        }
+        function result(){
+            document.location.href = "http://192.168.0.105:3333/<%=id%>/r"
         }
     </script>
 </head>
@@ -79,7 +83,7 @@
                             Голосовать
                         </button>
                         <span>             </span>
-                        <button id="pollResult" onclick ="createVoting()">
+                        <button id="pollResult" onclick="result()">
                             Результаты
                         </button>
                     </div>

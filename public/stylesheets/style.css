@@ -266,8 +266,16 @@ body {
 #pollForm #pollBody .pollOption #radio {
     position: absolute;
     margin-left: 5px;
-    margin-top : 0px;
+    margin-top: 0px;
     width: 31px;
     height: 37px;
     background-color: deepskyblue;
+}
+/*Диаграмма*/
+.letter {
+    color: red; /* Красный цвет символов */
+    font-size: 200%; /* Размер шрифта в процентах */
+    font-family: serif; /* Шрифт с засечками */
+    position: relative; /* Относительное позиционирование */
+    top: 5px; /* Сдвиг сверху */
 }
