@@ -39,7 +39,10 @@
         function span(count){
             var obj = document.createElement('div');
             obj.innerHTML = '<span style="color: black; font-size: 22pt; font-family: fantasy; margin-left: 46%;">Всего голосов: '+count+'</span>';
+            document.body.appendChild(obj);
 
+            var obj = document.createElement('div');
+            obj.innerHTML = '<span style="font-family: cursive; font-style: italic; color: deeppink;">*Если ответ не отображается, значит за него никто ещё не проголосовал</span>';
             document.body.appendChild(obj);
         }
         function parseResult(t){
