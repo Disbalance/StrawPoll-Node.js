@@ -25,9 +25,13 @@
                         alert(xhr.responseText);
                         return;
                     }
+                };
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 201) {
+                        result();
+                    }
                 }
             };
-         /*;*/
         };
         function createVote(){
             var value = [];
@@ -63,7 +67,11 @@
             <main class="content">
                 <div id = pollForm>
                     <div id = pollHeader>
-                        <textarea type="text" id="quest" readonly><%=quest%></textarea>
+                        <%if (!mult_pass){%>
+                        <textarea type="text" id="quest" readonly><%=quest%> (Выберите один)</textarea>
+                        <%}else{%>
+                        <textarea type="text" id="quest" readonly><%=quest%> (Выберите один или несколько)</textarea>
+                        <%}%>
                     </div>
                     <div id="pollBody">
                        <%for(i=0;i<options.length;i++){%>
