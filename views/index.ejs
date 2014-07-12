@@ -3,72 +3,13 @@
 <head>
     <title>Мини Опрос</title>
     <meta charset="utf-8" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <title></title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link href="stylesheets/style.css" rel="stylesheet">
-    <script language="javascript">
-        var items=4;
-        function AddItem(item) {
-            if ((item == 30) || (item != items)) {
-                return;
-            }
-            var div = document.getElementById("pollBody");
-            var button = document.getElementById("Add");
-            items++;
-            var newitem = "<span>" + items + ". </span>";
-            newitem += "<input type=\"text\" placeholder=\"Введите вариант ответа...\" onkeypress =\"AddItem(" + items + ")\" name=\"Option " + items;
-            newitem += "\" size=\"20\">";
-            newnode = document.createElement("div");
-            newnode.className = "pollOption";
-            newnode.innerHTML = newitem;
-            div.insertBefore(newnode, button);
-        }
-    </script>
-    <script language="javascript">
-
-        function createVoting() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/createPoll',true);
-            var data = createData();
-            if (data == 0) {
-                return;
-            }
-            xhr.send(data);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4) {
-                    if(xhr.status == 200) {
-                        var o = document.createElement('div');
-                        o.className ="b-popup-content";
-                        o.innerHTML = '<div class=\"b-popup\" id=\"popup1\"><div class=\"b-popup-content\"><span> Ваш вопрос был создан и теперь доступен:</span><div><a href="'+xhr.responseText+'">'+xhr.responseText+'</a></div></div></div>';
-                        document.body.appendChild(o);
-                    }
-                }
-            };
-
-
-        };
-         function createData(){
-           var option = [];
-           var space = false;
-            $('input', '.pollOption').each(function(index, item) {
-                if (item.value !="") {
-                    if (item.value != ' ') {
-                        option.push(item.value);
-                    }
-                }
-            });
-            var multis=document.getElementById("pollMulti").checked;
-            var ips = document.getElementById("pollPermissive").checked;
-             if (($('#quest').val() =="") || (option.length <= 1)) {
-                   alert('Заполните поле вопрос и заполните более 2-х вариантов ответа');
-                 return 0;
-             }
-            return JSON.stringify({quest: $('#quest').val(), options: option, multi: multis, ip: ips});
-        }
-    </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="javascripts/main.js"></script>
 </head>
 
 <body>
