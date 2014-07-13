@@ -13,8 +13,7 @@ function vote() {
                 alert(xhr.responseText);
                 return;
             }
-        }
-        ;
+        };
         if (xhr.readyState == 4) {
             if (xhr.status == 201) {
                 result();
@@ -41,5 +40,5 @@ function createVote() {
 function result() {
     var s = window.location.pathname;
     var n = s.substring(1, s.length);
-    document.location.href = "http://192.168.0.105:3333/"+n+'/r'
+    document.location.href = "http://localhost:3000/"+n+'/r'
 };

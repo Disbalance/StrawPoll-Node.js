@@ -9,28 +9,28 @@ function getResult() {
     var n = s[1];
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/getResult', true);
-    var data = JSON.stringify({id:n});
+    var data = JSON.stringify({id: n});
     xhr.send(data);
-    xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4) {
-    if (xhr.status == 200) {
-    var t = JSON.parse(xhr.response);
-    parseResult(t);
-    span(t.count);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                var t = JSON.parse(xhr.response);
+                parseResult(t);
+                span(t.count);
+            }
+            if (xhr.status == 202) {
+                alert(xhr.responseText);
+                var url = window.location.pathname;
+                url = url.substring(0, url.length - 2);
+                document.location.href = "http://localhost:3000" + url;
+            }
+            if (xhr.status == 203) {
+                alert(xhr.responseText);
+                document.location.href = "http://localhost:3000";
+            }
+        }
     }
-    if (xhr.status == 202) {
-    alert(xhr.responseText);
-    var url = window.location.pathname;
-    url = url.substring(0,url.length-2);
-    document.location.href = "http://192.168.0.105:3333"+url;
-    }
-    if (xhr.status == 203) {
-    alert(xhr.responseText);
-    document.location.href = "http://192.168.0.105:3333";
-    }
-    }
-    }
-    };
+};
 
 function span(count){
     var obj = document.createElement('div');
